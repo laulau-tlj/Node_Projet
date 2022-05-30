@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <!-- Intégration de ma navbar -->
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Bienvenue sur mon site</h1>
+            <p>Vous trouverez ici la liste des articles</p>
+            
+            <% if (articles.length > 0) { %>
+                    <% articles.forEach(function(article) { %>
+                        <strong><%= article.title %></strong>
+                        <p><%= article.description %></p>
+                    <% }); %>
+            <% } else { %>
+                <p>
+                    Aucun utilisateur
+                </p>
+            <% } %>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Integration de mon footer -->
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+
+</html>

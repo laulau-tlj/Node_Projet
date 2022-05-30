@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <%- include('../partials/head'); %>
+        </head>
+        <body class="container">
+
+            <header>
+                <!-- Intégration de ma navbar -->
+                <%- include('../partials/header'); %>
+            </header>
+
+            <main>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="jumbotron">
+                            <h1>Bienvenue !</h1>
+                            <p>La liste des utilisateurs:</p>
+                            <% if (users.length > 0) { %>
+                                <% users.forEach(function(user) { %>
+                                    <strong><%= user.userId %></strong>
+                                    <p><%= user.username %></p>
+                                <% }); %>
+                        <% } else { %>
+                            <p>
+                                Aucun utilisateur
+                            </p>
+                        <% } %>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="well">
+                            <h3>Ajoutez un utilisateur</h3>
+                        </div>
+                        <form action="/user" method="post" class="mt-5 p-3 border">
+                            <h2>Créez un nouvel user</h2>
+                            <div>
+                                <label for="username" >Username</label>
+                                <input type="text" name="username" id="username" autofocus required>
+                            </div>
+
+                            <div>
+                                <label for="email">Email</label>
+                                <input type="text" name="email" id="username" required>
+                            </div>
+
+                            <div>
+                                <label for="email">Age</label>
+                                <input type="number" name="age" id="age" step="1" min="18" max="80" required>
+                            </div>
+
+                            <button type="submit">Créer</button>
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+
+            <footer>
+                <!-- Integration de mon footer -->
+                <%- include('../partials/footer'); %>
+            </footer>
+
+        </body>
+        <script src="users.css"></script>
+</html>
